@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>salary</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let basic = window.prompt("enter your basic salary:")
+
+    let tax= 5*basic/100;
+
+    let pf= 10*basic/100;
+
+    let HRA = 3*basic/100;
+
+    let DA = 2*basic/100;
+
+    let TA = 1*basic/100;
+
+   
+    let inhand = basic -pf - tax + HRA +DA + TA ;
+    document.write("<b>tax: </b>" + tax + "<br/>")
+    document.write("<b>PF: </b>" + pf+ "<br/>")
+    document.write("<b>HR: </b>" + HRA + "<br/>")
+    document.write("<b>DA: </b>" + DA + "<br/>")
+    document.write("<b>TA: </b>" + TA + "<br/>")
+
+
+    document.write("<b>enhance: </b>" + inhand + "<br/>")
+    
+
+    document.write("<b>CTC: </b>" +basic + "<br/>")
+
+    
+
+
+</script>
+</html>
