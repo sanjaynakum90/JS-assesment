@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container my-5 bg-secondary bg-gradient border">
+        <h3 class="text-center p-2">Billing System</h3>
+        <div class="row">
+            <div class="col p-2 border">
+                <label id="">Bill NO:</label>
+                <input type="text" id="b_no">
+            </div>
+            <div class="col p-2 border">
+                <label> customer Name:</label>
+                <input type="text" id="c_name">
+            </div>
+            <div class="col p-2 border">
+                <label>Phone NO:</label>
+                <input type="text" id="p_no">
+            </div>
+        </div>
+    </div>
+    <div class="container bg-body-secondary">
+        <div class="row">
+            <div class="col-8 p-3">
+                <table class="table border">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">product</th>
+                            <th scope="col">price</th>
+                            <th scope="col">Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td>Chips</td>
+                            <td>20/-</td>
+                            <td><input type="number" id="Chips"> </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>Coldrinks</td>
+                            <td>80/-</td>
+                            <td><input type="number" id="Coldrinks"> </td>
+                        </tr>
+                        <tr class="text-center bg-success-subtle">
+                            <td>Burger</td>
+                            <td>120/-</td>
+                            <td><input type="number" id="Burger"> </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>Pizza</td>
+                            <td>199/-</td>
+                            <td><input type="number" id="Pizza"> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-outline-info px-5 rounded" onclick="result()">Check Out</button>
+            </div>
+            <div class=" p-3 col-4 border-start border-secondary">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="text-center bg-success-subtle p-2 rounded">Bill Area</h4>
+                        <p class="mb-0 pb-0 text-center">WELCOME TO SUPER MARKET</p>
+                        <p class="pb-0 mb-0">Customer name: <b id="c_name1"></b></p>
+                        <p>______________________________________________________________</p>
+                    </div>
+                    <div class="col-6 ">
+                        <label>Item name</label>
+                        <p class="pb-0 mb-0">-----------------</p>
+                        <label>Chips</label>
+                        <br />
+                        <br />
+                        <label>Coldrinks</label>
+                        <br />
+                        <br />
+                        <label>Burger</label>
+                        <br />
+                        <br />
+                        <label>Pizza</label>
+                        <br />
+                        <br />
+                    </div>
+                    <div class="col-3 ">
+                        <label>Qty</label>
+                        <p>------</p>
+                        <b id="Chips1"></b>
+                        <br />
+                        <br />
+                        <b id="Coldrinks1"></b>
+                        <br />
+                        <br />
+                        <b id="Burger1"></b>
+                        <br />
+                        <br />
+                        <b id="Pizza1"></b>
+                        <br />
+                    </div>
+                    <div class="col-3 ">
+                        <label>Price</label>
+                        <p>------</p>
+                        <b id="Chips2"></b>
+                        <br />
+                        <br />
+                        <b id="Coldrinks2"></b>
+                        <br />
+                        <br />
+                        <b id="Burger2"></b>
+                        <br />
+                        <br />
+                        <b id="Pizza2"></b>
+                    </div>
+                    <p class="pb-0 mb-0">______________________________________________________________</p>
+                    <div class="d-flex justify-content-evenly">
+                        <b class="pt-4 h5 text-success fw-bolder">Sub Total</b>
+                        <b id="subt" class="pt-4 bg-success-subtle px-5 "></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+<script>
+   function result() {
+    let p_no = document.getElementById("p_no").value;
+    let c_name = document.getElementById("c_name").value;
+    let b_no = document.getElementById("b_no").value;
+
+    // Get quantities as integers, default to 0
+    let Chips = parseInt(document.getElementById("Chips").value) || 0;
+    let Coldrinks = parseInt(document.getElementById("Coldrinks").value) || 0;
+    let Burger = parseInt(document.getElementById("Burger").value) || 0;
+    let Pizza = parseInt(document.getElementById("Pizza").value) || 0;
+
+    // Customer name
+    document.getElementById("c_name1").innerHTML = c_name;
+
+    // Quantities
+    document.getElementById("Chips1").innerHTML = Chips;
+    document.getElementById("Coldrinks1").innerHTML = Coldrinks;
+    document.getElementById("Burger1").innerHTML = Burger;
+    document.getElementById("Pizza1").innerHTML = Pizza;
+
+    // Prices for each item
+    document.getElementById("Chips2").innerHTML = Chips * 20;
+    document.getElementById("Coldrinks2").innerHTML = Coldrinks * 80;
+    document.getElementById("Burger2").innerHTML = Burger * 120;
+    document.getElementById("Pizza2").innerHTML = Pizza * 199;
+
+    // Subtotal
+    document.getElementById("subt").innerHTML = (Chips * 20) + (Coldrinks * 80) + (Burger * 120) + (Pizza * 199);
+}
+</script>
+
+</html>
