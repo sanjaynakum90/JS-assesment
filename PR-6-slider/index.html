@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <style>
+        .slider {
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 600px;
+            height: 400px;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slides" id="slides">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDk09BPcBrfejqCTcgXagFV3K0Bxn-x6E0wg&s"
+                alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuRudmo-cNskAQsQpLXVQEEcWMG5VuN90Xrw&s"
+                alt="Slide 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQKZVcQ3FXzLJsfiH32OamDiFy9WBtFsgvWw&s"
+                alt="Slide 3">
+        </div>
+    </div>
+    <div class="buttons">
+        <button onclick="prevSlide()">Prev</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.getElementById("slides");
+        const totalSlides = slides.children.length;
+
+        function updateSlidePosition() {
+            slides.style.transform = `translateX(-${600* currentIndex}px)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlidePosition();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlidePosition();
+        }
+    </script>
+</body>
+
+</html>
