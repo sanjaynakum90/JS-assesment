@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown & Quotes App</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+            background: #f5f5f5;
+        }
+
+        #countdown,
+        #quote {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #quote {
+            font-style: italic;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Countdown & Quotes App</h1>
+
+    <div id="countdown"></div>
+    <div id="quote"></div>
+    <button onclick="newQuote()">New Quote</button>
+
+    <script>
+        // 🕒 Countdown Setup
+        const countdownDiv = document.getElementById("countdown");
+        const targetDate = new Date("2025-12-31T00:00:00");
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(diff / (1000 * 60 * 60) % 24);
+            const mins = Math.floor(diff / (1000 * 60) % 60);
+            const secs = Math.floor(diff / 1000 % 60);
+
+            countdownDiv.textContent = `⏳ Time left: ${days}d ${hours}h ${mins}m ${secs}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        // ✨ Quotes Logic
+        const quotes = [
+            "Believe you can and you're halfway there.",
+            "Every moment is a fresh beginning.",
+            "Start where you are. Use what you have. Do what you can.",
+            "Your only limit is your mind.",
+            "Push yourself, because no one else is going to do it for you."
+        ];
+
+        const quoteDiv = document.getElementById("quote");
+
+        function newQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteDiv.textContent = `"${quotes[randomIndex]}"`;
+        }
+
+        // Load first quote
+        newQuote();
+    </script>
+
+</body>
+
+</html>
